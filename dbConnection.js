@@ -1,11 +1,8 @@
 'use strict';
-console.log('dev mode :', process.env.ENVIRONMENT === 'dev', process.env.DBURL);
+console.log('dev mode :', process.env.NODE_ENV === 'dev', process.env.MONGODB_URI);
 const mongoose = require('mongoose');
 const mongo = {
-  uri:
-    process.env.ENVIRONMENT === 'dev'
-      ? `mongodb://localhost:27017/${process.env.dbName}`
-      : process.env.DBURL,
+  uri: process.env.MONGODB_URI,
   opt: {
     useNewUrlParser: true,
     // useCreateIndex: true,

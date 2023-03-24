@@ -11,8 +11,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // db connecting
-db.connect().then((connection) => console.log(connection?.readyState));
-
+db.connect().then((connection) =>
+  process.env.NODE_ENV !== 'test'
+    ? console.log(connection?.readyState)
+    : connection
+);
 
 // starting server
 const port = process.env.PORT || 5000;
