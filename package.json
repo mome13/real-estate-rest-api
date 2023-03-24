@@ -4,6 +4,9 @@
   "description": "This is a real state rest api. A sample project to help beginners learn best practices",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
+    "prettier": "prettier --write \"**/*.{ts,js,scss,css}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
