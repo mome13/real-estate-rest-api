@@ -1,8 +1,8 @@
 'use strict';
-console.log('dev mode :', process.env.NODE_ENV === 'dev', process.env.MONGODB_URI);
+console.log('mode: ', process.env.NODE_ENV);
 const mongoose = require('mongoose');
 const mongo = {
-  uri: process.env.MONGODB_URI,
+  uri: process?.env?.MONGODB_URI || process?.secrets?.MONGODB_URI,
   opt: {
     useNewUrlParser: true,
     // useCreateIndex: true,
