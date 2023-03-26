@@ -2,7 +2,7 @@
 console.log('mode: ', process.env.NODE_ENV);
 const mongoose = require('mongoose');
 const mongo = {
-  uri: process?.env?.MONGODB_URI || process?.secrets?.MONGODB_URI,
+  uri: process.env.MONGODB_URI,
   opt: {
     useNewUrlParser: true,
     // useCreateIndex: true,

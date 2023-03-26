@@ -5,7 +5,7 @@ require('dotenv').config();
 
 /* Connecting to the database before each test. */
 beforeEach(async () => {
-  await mongoose.connect(process?.env?.MONGODB_URI || process?.secrets?.MONGODB_URI, {
+  await mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
   });
 });
