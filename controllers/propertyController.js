@@ -40,3 +40,14 @@ propertyController.get('/find', async (req, res) => {
     return res.status(500).json(error);
   }
 });
+
+propertyController.get('/find/types', async (req, res) => {
+  try {
+    const houseType = await Property.countDocuments({ type: 'house' });
+    const apartmentType = await Property.countDocuments({ type: 'apartment' });
+
+    return res.status(200).json({ house: houseType, apartment: apartmentType });
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+});
