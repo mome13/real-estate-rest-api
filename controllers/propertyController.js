@@ -51,3 +51,21 @@ propertyController.get('/find/types', async (req, res) => {
     return res.status(500).json(error);
   }
 });
+
+// TODO FETCH INDIVIDUAL PROPERTY
+propertyController.get('/find/:id', async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id).populate(
+      'currentOwner',
+      '-password'
+    );
+
+    if (!property) {
+      throw new Error('No such property with that id');
+    } else {
+      return res.status(200).json(property);
+    }
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+});
