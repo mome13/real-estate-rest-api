@@ -2,27 +2,35 @@ const mongoose = require('mongoose');
 
 const PropertySchema = new mongoose.Schema(
   {
-    currentOwner: {
-      type: mongoose.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
-    title: {
+    // currentOwner: {
+    //   type: mongoose.Types.ObjectId,
+    //   ref: 'User',
+    //   required: true,
+    // },
+    address: {
       type: String,
       required: true,
       min: 6,
     },
+    // type: {
+    //   type: String,
+    //   enum: ['house', 'apartment'],
+    //   required: true,
+    // },
     type: {
       type: String,
-      enum: ['house', 'apartment'],
+      enum: ['rent', 'sale'],
       required: true,
     },
     desc: {
       type: String,
       required: true,
-      min: 50,
     },
-    img: {
+    parkings: {
+      type: Number,
+      required: false,
+    },
+    imgUrl: {
       type: String,
       required: true,
     },
@@ -30,23 +38,24 @@ const PropertySchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    sqmeters: {
+    rent: {
+      type: Number,
+      required: true,
+    },
+    area: {
       type: Number,
       required: true,
       min: 6,
     },
-    continent: {
-      type: String,
-      required: true,
-    },
-    beds: {
+    bedrooms: {
       type: Number,
       required: true,
       min: 1,
     },
-    featured: {
-      type: Boolean,
-      default: false,
+    bathrooms: {
+      type: Number,
+      required: true,
+      min: 1,
     },
   },
   { timestamps: true }
